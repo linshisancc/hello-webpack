@@ -7,6 +7,7 @@ const path = require('path');
  */
 
 const devConfig = {
+  stats: 'errors-only',
   devServer: {
     hot: true,
     open: true
