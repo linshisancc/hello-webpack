@@ -1,28 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import Test from './Test';
+// import Test from './Test';
 
 function fetchData() {
   return new Promise((resolve) => {
     resolve({
-      name: '张三'
-    })
-  })
+      name: '张三',
+    });
+  });
 }
 
 const Demo: React.FC = () => {
-
   const [TestComponent, setTestComponent] = useState<any>({
-    component: null
+    component: null,
   });
   // console.log('Test => ', Test);
   function loadTestComponent() {
-    import('./Test')
-      .then(res => {
-        console.log('res.default => ', res.default);
-        setTestComponent({
-          component: res.default
-        });
-      })
+    import('./Test').then((res) => {
+      console.log('res.default => ', res.default);
+      setTestComponent({
+        component: res.default,
+      });
+    });
   }
 
   useEffect(() => {
@@ -31,19 +29,19 @@ const Demo: React.FC = () => {
       console.log(res);
     }
     getData();
-  }, [])
+  }, []);
   // console.log('Test => ', Test);
   // console.log('xx', React.createElement(Test))
   console.log('component => ', TestComponent);
   return (
     <div>
-      { TestComponent.component ? <TestComponent.component></TestComponent.component> : '' }
+      {TestComponent.component ? <TestComponent.component></TestComponent.component> : ''}
       {/* { React.createElement(Test) } */}
       <div>demo</div>
       <button onClick={loadTestComponent}>点我加载test组件</button>
     </div>
-  )
-}
+  );
+};
 
 /**
  * 很诡异的问题，
@@ -67,7 +65,7 @@ const Demo: React.FC = () => {
 //         });
 //       })
 //   }
- 
+
 //   render() {
 
 //     const { TestComponent } = this.state;

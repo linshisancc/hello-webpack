@@ -15,52 +15,76 @@ const baseConfig = {
   entry: path.join(__dirname, '../src/index.js'),
   output: {
     filename: `[name].${isProd ? '[chunkhash:8].' : ''}js`,
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'postcss-loader']
+        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,
-        use: 'babel-loader?cacheDirectory=true'
+        use: 'babel-loader?cacheDirectory=true',
       },
       {
         test: /\.scss$/,
-        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader', 'postcss-loader'],
       },
       {
         test: /\.ts$/,
-        use: 'ts-loader'
+        use: 'ts-loader',
       },
       {
         test: /.(woff|woff2|eot|ttf|otf)$/,
-        use: 'file-loader'
+        type: 'asset/resource',
       },
       {
         test: /.(png|jpg|gif|jpeg)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 1024 * 12
-          }
-        }
-      }
-    ]
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1024 * 8,
+          },
+        },
+        use: [
+          {
+            options: {
+              mozjpeg: {
+                progressive: true,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html'),
-      filename: `index.${isProd ? '[contenthash:8].' : ''}html`
+      filename: `index.${isProd ? '[contenthash:8].' : ''}html`,
     }),
-    new ESLintPlugin({ extensions: ['.js', '.jsx', '.ts', '.tsx'] })
+    new ESLintPlugin({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
   ],
   optimization: {
     splitChunks: {
@@ -75,16 +99,16 @@ const baseConfig = {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
-          reuseExistingChunk: true
+          reuseExistingChunk: true,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
-  }
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 };
 
 module.exports = baseConfig;
