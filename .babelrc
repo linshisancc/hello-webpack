@@ -12,6 +12,10 @@
         "useBuiltIns": "usage",
         "corejs": "3.23.5"
       }
-    ]
+    ],
+    ["@babel/preset-react", {
+      "runtime": "automatic" //启用新的jsx转换规则
+    }],
+    ["@babel/preset-typescript"]
   ]
 }
