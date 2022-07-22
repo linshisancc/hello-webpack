@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 function fetchData() {
   return new Promise((resolve) => {
     resolve({
-      name: '张三',
+      name: '张三锋',
     });
   });
 }
