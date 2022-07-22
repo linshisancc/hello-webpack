@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import Test from './Test';
+import Test from './Test';
 
 function fetchData() {
   return new Promise((resolve) => {
