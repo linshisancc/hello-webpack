@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Test from './Test';
+import Demo02 from './Demo02';
 
 function fetchData() {
   return new Promise((resolve) => {
     resolve({
-      name: '张三锋',
+      name: '张三锋打怪兽',
     });
   });
 }
@@ -38,6 +38,7 @@ const Demo: React.FC = () => {
       {TestComponent.component ? <TestComponent.component></TestComponent.component> : ''}
       {/* { React.createElement(Test) } */}
       <div>demo</div>
+      <Demo02></Demo02>
       <button onClick={loadTestComponent}>点我加载test组件</button>
     </div>
   );

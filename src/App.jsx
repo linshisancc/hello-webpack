@@ -6,6 +6,7 @@ import Demo from './component/Demo';
 import img from './images/头像.jpeg';
 import xiaozhu from './images/小猪.jpeg';
 import We from './images/WechatIMG87.jpeg';
+
 console.log(a);
 console.log(We);
 export default function App() {
