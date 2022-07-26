@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Demo02 from './Demo02';
-
+// import three from 'three.js';
+// console.log(three);
 function fetchData() {
   return new Promise((resolve) => {
     resolve({
@@ -13,9 +14,9 @@ const Demo: React.FC = () => {
   const [TestComponent, setTestComponent] = useState<any>({
     component: null,
   });
-  // console.log('Test => ', Test);
+
   function loadTestComponent() {
-    import('./Test').then((res) => {
+    import(/* webpackChunkName: "TestGroup2" */ './Test').then((res) => {
       console.log('res.default => ', res.default);
       setTestComponent({
         component: res.default,

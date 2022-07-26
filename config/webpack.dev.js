@@ -1,11 +1,9 @@
 const baseConfig = require('./webpack.base');
 const { merge } = require('webpack-merge');
-// const path = require('path');
 
 /**
  * @type {import('webpack').Configuration}
  */
-
 const devConfig = {
   devServer: {
     hot: true,
@@ -13,12 +11,12 @@ const devConfig = {
   },
   // 禁用产物优化
   optimization: {
-    // removeAvailableModules: false,
-    // removeEmptyChunks: false,
-    // splitChunks: false,
-    // minimize: false,
-    // concatenateModules: false,
-    // usedExports: false,
+    removeAvailableModules: false,
+    removeEmptyChunks: false,
+    splitChunks: false,
+    minimize: false,
+    concatenateModules: false,
+    usedExports: false,
   },
 };
 

@@ -3,10 +3,6 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-
-// const smp = new SpeedMeasurePlugin();
 
 /**
  * @type {import('webpack').Configuration}
@@ -26,7 +22,10 @@ const prodConfig = {
         parallel: 2, // 并行压缩
       }),
     ],
+    // 将运行时代码抽取到 `runtime` 文件中
+    runtimeChunk: { name: 'runtime' },
   },
+  // devtool: 'source-map',
 };
 
 module.exports = merge(baseConfig, prodConfig);
