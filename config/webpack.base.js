@@ -43,7 +43,7 @@ const getStyleLoader = (test, preLoader) => {
  */
 const baseConfig = {
   mode: isProd ? 'production' : 'development',
-  entry: path.join(__dirname, '../src/index.js'),
+  entry: path.join(__dirname, '../src/index.tsx'),
   output: {
     filename: `[name].${isProd ? '[contenthash:8].' : ''}js`,
     path: path.join(__dirname, '../dist'),
@@ -97,7 +97,7 @@ const baseConfig = {
       filename: `index.${isProd ? '[contenthash:8].' : ''}html`,
     }),
     new ESLintPlugin({
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: ['.ts', '.tsx'],
       cache: true,
     }),
     new FriendlyErrorsWebpackPlugin({
@@ -140,10 +140,10 @@ const baseConfig = {
     maxAssetSize: 512000,
   },
   // 分离三方库
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom': 'ReactDOM',
+  // },
 };
 
 module.exports = baseConfig;

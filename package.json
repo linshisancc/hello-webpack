@@ -19,6 +19,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "antd": "^4.21.7",
@@ -48,6 +49,7 @@
     "node-sass": "^7.0.1",
     "postcss": "^8.4.14",
     "postcss-loader": "^7.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^2.7.1",
     "sass-loader": "^13.0.2",
     "speed-measure-webpack-plugin": "^1.5.0",
@@ -61,7 +63,8 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "core-js": "^3.23.5",
+    "core-js": "^3.24.1",
+    "dayjs": "^1.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three.js": "^0.77.1"

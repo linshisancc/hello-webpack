@@ -7,13 +7,10 @@ import xiaozhu from './images/小猪.jpeg';
 import We from './images/WechatIMG87.jpeg';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
-
 console.log(a);
 console.log(We);
 const promise = new Promise((resolve) => {});
 console.log(promise);
-const map = new Map();
-console.log(map);
 
 export default function App() {
   const [count, setCount] = useState(0);

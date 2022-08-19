@@ -3,4 +3,4 @@ import App from './App';
 import './styles/common.css';
 import './styles/common.scss';
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

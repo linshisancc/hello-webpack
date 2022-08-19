@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Demo02 from './Demo02';
-// import three from 'three.js';
-// console.log(three);
+// console.log(a);
+const promise = Promise.resolve();
+console.log(promise);
 function fetchData() {
   return new Promise((resolve) => {
     resolve({
